@@ -34,27 +34,26 @@ absensi_form.addEventListener('submit', (event) => {
   renderToHtml();
 
   //console.info(absensi_data);
+});
+//function untuk merender data array ke div root
+function renderToHtml() {
+  //reset element div root
+  root.innerHTML = '';
 
-  //function untuk merender data array ke div root
-  function renderToHtml() {
-    //reset element div root
-    root.innerHTML = '';
-
-    //mapping array to html element
-    absensi_data.forEach((e, i) => {
-      root.innerHTML += `
+  //mapping array to html element
+  absensi_data.forEach((e, i) => {
+    root.innerHTML += `
       <div class="card" draggable="true" ondragend="handleDelete(${i})">
         <span> ${i + 1}. &nbsp; ${e.nama_lengkap} </span> 
         <span> ${e.waktu} ${e.tanggal} <span>
       </div>
       `;
-    });
-  }
-});
+  });
+}
 
 //delete function
 function handleDelete(index) {
-  console.info(index);
+  // console.info(index);
 
   //delete satu data dari array
   absensi_data.splice(index, 1);
